@@ -1,2 +1,2 @@
-# mfe-reactjs-host-ui
-It's host repository
+# mfe-react-container-ui
+npm start
