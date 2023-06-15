@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import useDynamicScript from '../hooks/useDynamicScript';
+import useDynamicScript from "../hooks/useDynamicScript";
 
 const loadComponent = (scope: any, module: any) => {
   return async () => {
@@ -15,11 +15,17 @@ const loadComponent = (scope: any, module: any) => {
     const Module = factory();
     return Module;
   };
+};
+
+interface MicroFrontendIF {
+  module: any;
+  url: any;
+  scope: any;
 }
 
-const MicroFrontend = (props: any) => {
+const MicroFrontend = (props: MicroFrontendIF) => {
   const { ready, failed } = useDynamicScript({
-    url: props.module && props.url
+    url: props.module && props.url,
   });
 
   if (!props.module) {
@@ -34,15 +40,13 @@ const MicroFrontend = (props: any) => {
     return <h2>Failed to load dynamic script: {props.url}</h2>;
   }
 
-  const Component = React.lazy(
-    loadComponent(props.scope, props.module)
-  );
+  const Component = React.lazy(loadComponent(props.scope, props.module));
 
   return (
     <Suspense fallback="Loading Module">
       <Component />
     </Suspense>
   );
-}
+};
 
 export default MicroFrontend;
