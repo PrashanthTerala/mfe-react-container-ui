@@ -43,7 +43,7 @@ const MicroFrontend = (props: MicroFrontendIF) => {
   const Component = React.lazy(loadComponent(props.scope, props.module));
 
   return (
-    <Suspense fallback="Loading Module">
+    <Suspense fallback="Loading...">
       <Component />
     </Suspense>
   );

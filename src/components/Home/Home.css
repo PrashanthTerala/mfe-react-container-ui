@@ -1,0 +1,31 @@
+/* Sections */
+.one {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--main-color);
+}
+
+.container {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 50%;
+}
+
+.one h1 {
+  margin-bottom: 1rem;
+  color: var(--third-color);
+  font-size: 2rem;
+}
+
+.two {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--third-color);
+}

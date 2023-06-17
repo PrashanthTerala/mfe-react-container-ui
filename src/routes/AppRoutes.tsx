@@ -1,6 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 import MicroFrontend from "../MicrofrontendLoader/MicroFrontend";
+import { Home } from "../components/Home/Home";
 
 export const Remote01Routes = () => {
   const routes = useRoutes([
@@ -33,3 +34,13 @@ export const Remote01Routes = () => {
 //   ]);
 //   return routes;
 // };
+
+export const ContainerRoutes = () => {
+  const routes = useRoutes([
+    {
+      path: "/",
+      element: <Home />,
+    },
+  ]);
+  return routes;
+};
