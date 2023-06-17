@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 
 export const Navbar = () => {
-  //   const header = document.querySelector("header");
-  //   let prevScrollPos = window.pageYOffset;
-  //   console.log("prevScrollPos: " + prevScrollPos);
-  //   window.onscroll = function () {
-  //     let currentScrollPos = window.pageYOffset;
-  //     if (prevScrollPos > currentScrollPos) {
-  //       header?.classList.remove("scroll");
-  //     } else {
-  //       header?.classList.add("scroll");
-  //     }
-  //     prevScrollPos = currentScrollPos;
-  //   };
+  let prevScrollPos = 0;
+  let currentScrollPos = 0;
+  const windowScroll = () => {
+    const header = document.querySelector("header");
+    currentScrollPos = window.pageYOffset;
+    if (prevScrollPos > currentScrollPos) {
+      header?.classList.remove("scroll");
+    } else {
+      header?.classList.add("scroll");
+    }
+    prevScrollPos = currentScrollPos;
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", windowScroll);
+    return () => {
+      window.removeEventListener("scroll", windowScroll);
+    };
+  }, []);
   return (
-    <header className="header">
+    <header
+      className={`header`}
+      // style={{ display: `${navShow}` }}
+    >
       <div className="logo">LOGO HERE</div>
       <nav>
         <ul>
