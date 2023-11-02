@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 
 export const Navbar = () => {
+  const baseURL = window.location.origin + window.location.pathname + "#";
   let prevScrollPos = 0;
   let currentScrollPos = 0;
   const windowScroll = () => {
@@ -20,31 +21,44 @@ export const Navbar = () => {
       window.removeEventListener("scroll", windowScroll);
     };
   }, []);
+
+  // const li = () => {
+  //   return (
+  //     <>
+  //       <li>
+  //         <a href={`${baseURL}/kkkkkk`}>Dashboard</a>
+  //       </li>
+  //     </>
+  //   );
+  // };
+
   return (
-    <header
-      className={`header`}
-      // style={{ display: `${navShow}` }}
-    >
-      <div className="logo">LOGO HERE</div>
-      <nav>
-        <ul>
-          <li>
-            <a href="/#/">Home</a>
-          </li>
-          <li>
-            <a href="/#/remote01/dashboard">Dashboard</a>
-          </li>
-          <li>
-            <a href="/#/remote01/about">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-          <li>
-            <a href="#">Blog</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <>
+      <header
+        className={`header`}
+        // style={{ display: `${navShow}` }}
+      >
+        <div className="logo">LOGO HERE</div>
+        <nav>
+          <ul>
+            <li>
+              <a href={baseURL}>Home</a>
+            </li>
+            <li>
+              <a href={`${baseURL}/remote01/dashboard`}>Dashboard</a>
+            </li>
+            <li>
+              <a href={`${baseURL}/remote01/about`}>About</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <a href="#">Blog</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </>
   );
 };

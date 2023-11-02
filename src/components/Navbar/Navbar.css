@@ -6,7 +6,7 @@ header {
   height: 4rem;
   background-color: var(--main-color);
   z-index: 1;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 header.scroll {
@@ -17,7 +17,7 @@ header.scroll {
   height: 4rem;
   background-color: var(--main-color);
   z-index: 1;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .logo {
